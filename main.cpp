@@ -46,7 +46,7 @@ int minDistance(int dist[], bool sptSet[]) {
 }
 
 /* Kada je popunjen niz parent[], koristi se rekurzivna funkcija
-   da bi se zabelezile najkrace putanje do svake odredisnog autobusog stajalista. */
+   da bi se zabelezile najkrace putanje do svakog odredisnog autobusog stajalista. */
 void saveStation(int parent[], int j) {
     if(parent[j] == -1) {
         return;
@@ -109,7 +109,7 @@ void printSolution(int parent[]) {
 
 void dijkstra(int graph[V][V], int src) {
     int dist[V];       // Predstavlja niz koji cuva najkrace rastojanje od izvorisnog autobuskog stajalista X do odredisnog autobuskog stajalista Y.
-    bool sptSet[V];    // Predstavlja niz koji govori za koje odredisna autobuska stajalista je pronadjena najkraca putanja od izvorisnog autobuskog stajalista.
+    bool sptSet[V];    // Predstavlja niz koji govori za koja odredisna autobuska stajalista je pronadjena najkraca putanja od izvorisnog autobuskog stajalista.
     int parent[V];     // Predstavlja niz koji cuva vrhove stabla koji ulaze u najkracu putanju do svakog odredista.
 
     for(int i = 0; i < V; i++) {
@@ -120,7 +120,7 @@ void dijkstra(int graph[V][V], int src) {
 
     dist[src] = 0;
 
-    // Pronalazi najkrace putanje do svake odredisnog odredisnog autobuskog stajalista.
+    // Pronalazi najkrace putanje do svakog odredisnog autobuskog stajalista.
     for(int i = 0; i < V-1; i++) {
         int u = minDistance(dist, sptSet);
         sptSet[u] = true;
