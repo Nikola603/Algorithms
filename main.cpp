@@ -3,7 +3,7 @@ using namespace std;
 #include <stdio.h>
 #include <limits.h>
 
-#define V 9 // Ukupan broj autobuskih stanica.
+#define V 9 // Ukupan broj autobuskih stajalista.
 
 int counter = 1;
 int array[V];
@@ -33,8 +33,8 @@ void deallocateMatrix(Matrix* pMatrix) {
      pMatrix->numOfRows = 0;
 }
 
-/*  Pomocna funkcija za pronalazenje sledece stanice s minimalnom
-    vrednoscu rastojanja od izvorisne stanice na putu do odredisne stanice.  */
+/*  Pomocna funkcija za pronalazenje sledeceg autobuskog stajalista s minimalnom
+    vrednoscu rastojanja od izvorisnog autobuskog stajalista na putu do odredisnog autobuskog stajalista.  */
 int minDistance(int dist[], bool sptSet[]) {
     int min = INT_MAX, min_index;
     for(int i = 0; i < V; i++) {
@@ -46,7 +46,7 @@ int minDistance(int dist[], bool sptSet[]) {
 }
 
 /* Kada je popunjen niz parent[], koristi se rekurzivna funkcija
-   da bi se zabelezile najkrace putanje do svakog odredista. */
+   da bi se zabelezile najkrace putanje do svake odredisnog autobusog stajalista. */
 void saveStation(int parent[], int j) {
     if(parent[j] == -1) {
         return;
@@ -108,8 +108,8 @@ void printSolution(int parent[]) {
 }
 
 void dijkstra(int graph[V][V], int src) {
-    int dist[V];       // Predstavlja niz koji cuva najkrace rastojanje od izvorisne stanice X do odredisne stanice Y.
-    bool sptSet[V];    // Predstavlja niz koji govori za koje odredisne stanice je pronadjena najkraca putanja od izvorisne stanice.
+    int dist[V];       // Predstavlja niz koji cuva najkrace rastojanje od izvorisnog autobuskog stajalista X do odredisnog autobuskog stajalista Y.
+    bool sptSet[V];    // Predstavlja niz koji govori za koje odredisna autobuska stajalista je pronadjena najkraca putanja od izvorisnog autobuskog stajalista.
     int parent[V];     // Predstavlja niz koji cuva vrhove stabla koji ulaze u najkracu putanju do svakog odredista.
 
     for(int i = 0; i < V; i++) {
@@ -120,7 +120,7 @@ void dijkstra(int graph[V][V], int src) {
 
     dist[src] = 0;
 
-    // Pronalazi najkrace putanje do svake odredisne stanice.
+    // Pronalazi najkrace putanje do svake odredisnog odredisnog autobuskog stajalista.
     for(int i = 0; i < V-1; i++) {
         int u = minDistance(dist, sptSet);
         sptSet[u] = true;
@@ -144,7 +144,7 @@ void dijkstra(int graph[V][V], int src) {
 }
 
 int main() {
-    // Matrica susedstva, govori koje dve susedne stanice su povezane direktno.
+    // Matrica susedstva, govori koja dva susedna autobuska stajalista su povezana direktno.
                     //  0  1  2  3  4  5  6  7  8
     int graph[V][V] = {{0, 1, 0, 0, 0, 0, 0, 1, 0}, // 0
                        {1, 0, 1, 0, 0, 0, 0, 1, 0}, // 1
