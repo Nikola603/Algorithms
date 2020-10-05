@@ -1,2 +1,4 @@
-# -Algorithms
-The shortest route from the source bus stop to the destination bus stop.
+The name of the project is GSP Kragujevac.
+
+
+The project was implemented in the c++ programming language.
