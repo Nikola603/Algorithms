@@ -3,7 +3,7 @@ using namespace std;
 #include <stdio.h>
 #include <limits.h>
 
-#define V 9 // Ukupan broj stanica.
+#define V 9 // Ukupan broj autobuskih stanica.
 
 int counter = 1;
 int array[V];
